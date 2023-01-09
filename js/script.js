@@ -51,6 +51,14 @@ const card = [
   }
 ];
 
+// Funzione che crea la data corretta
+const formatDate = stringDate => {
+  const dates = stringDate.split('-');
+  const [month, day, year] = dates;
+  return `${day}/${month}/${year}`;
+}
+
+
 // Recupero i dati dal DOM
 const post = document.querySelector('.posts-list');
 
@@ -60,7 +68,6 @@ let cardElements = '';
 
 for (let i = 0; i < card.length; i++) {
   const cardPost = card[i];
-  // const button = document.createElement()
   cardElements += `<div class="post">
     <div class="post__header">
       <div class="post-meta">
@@ -69,7 +76,7 @@ for (let i = 0; i < card.length; i++) {
         </div>
         <div class="post-meta__data">
           <div class="post-meta__author">${cardPost.author}</div>
-          <div class="post-meta__time">${cardPost.date}</div>
+          <div class="post-meta__time">${formatDate(cardPost.date)}</div>
         </div>
       </div>
     </div>
